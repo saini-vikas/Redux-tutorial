@@ -1,9 +1,9 @@
-import { useState } from "react";
-
 function Todo() {
-    const []
-
-  return <div></div>;
+  return (
+    <div>
+      <input type="checkbox" />
+    </div>
+  );
 }
 
 export default Todo;

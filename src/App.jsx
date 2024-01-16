@@ -1,4 +1,5 @@
 import Counter from "./components/counter";
+import TodoList from "./components/todoList";
 
 function App() {
   return (
@@ -7,8 +8,7 @@ function App() {
         <Counter />
       </div>
       <div className="flex flex-1 flex-col  py-7 px-4 gap-4 items-center">
-        <p>Todo List</p>
-        <button>Add todo</button>
+        <TodoList />
       </div>
     </div>
   );
