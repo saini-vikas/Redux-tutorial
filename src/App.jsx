@@ -1,44 +1,15 @@
-import "./App.css";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  increase,
-  decrease,
-  decreaseByAmount,
-  increaseByAmount,
-} from "./store/counterSlice";
-import { useState } from "react";
+import Counter from "./components/counter";
 
 function App() {
-  const currentCount = useSelector((state) => state.counter.count);
-  const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
   return (
-    <div className="main">
-      <h4>Count: {currentCount} </h4>
-      <button onClick={() => dispatch(increase())}>Increment</button>
-      <button onClick={() => dispatch(decrease())}>Decrement</button>
-      <br />
-      <label htmlFor="amount">Amount: </label>
-      <input
-        type="number"
-        id="amount"
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-      ></input>
-      <button
-        onClick={() => {
-          dispatch(increaseByAmount(value));
-        }}
-      >
-        IncrementByAmount
-      </button>
-      <button
-        onClick={() => {
-          dispatch(decreaseByAmount(value));
-        }}
-      >
-        DecrementByAmount
-      </button>
+    <div className="container flex flex-row mx-auto p-4 gap-4">
+      <div className="flex flex-col flex-1 py-7 px-4 gap-4 items-center">
+        <Counter />
+      </div>
+      <div className="flex flex-1 flex-col  py-7 px-4 gap-4 items-center">
+        <p>Todo List</p>
+        <button>Add todo</button>
+      </div>
     </div>
   );
 }
