@@ -5,7 +5,7 @@ function Todo(props) {
   return (
     <div className="flex flex-row">
       <input
-        className="mx-3"
+        className="mx-3 cursor-pointer"
         id={props.id}
         type="checkbox"
         onChange={() => {
@@ -13,7 +13,7 @@ function Todo(props) {
         }}
       />
       <label
-        className={props.completed ? "text-green-600" : ""}
+        className={props.completed ? "text-green-600" : "text-stone-500"}
         htmlFor={props.id}
       >
         {props.title}
