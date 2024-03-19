@@ -37,10 +37,10 @@ const storeProducts = [
 
 const Products = () => {
   return (
-    <div className="flex flex-row flex-wrap space-x-2 w-2/3">
-      <p className="text-md text-purple-600">Products</p>
+    <div className="flex flex-col w-2/3 justify-items-center">
+      <p className="text-lg text-purple-600">Products</p>
 
-      <div>
+      <div className="flex flex-row flex-wrap w-full">
         {storeProducts.map((product) => (
           <Product key={product.id} prod={product} />
         ))}
