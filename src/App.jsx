@@ -12,7 +12,7 @@ function App() {
       <div className="flex flex-1 flex-col  py-7 px-4 gap-4 items-center">
         <TodoList />
       </div>
-      <div className="flex flex-row mx-auto w-full px-3 h-auto">
+      <div className="flex flex-row mx-auto w-full px-4 h-auto">
         <Products />
         <Cart />
       </div>
