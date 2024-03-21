@@ -13,7 +13,7 @@ const storeProducts = [
     id: 2,
     name: "Cargo",
     price: 49.99,
-    quantity: 23,
+    quantity: 2,
     description:
       "Modern era cargo pants, provide a cinematic look and feel. Very cofortable.",
   },
