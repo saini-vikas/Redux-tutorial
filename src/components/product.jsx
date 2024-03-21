@@ -1,5 +1,9 @@
 import { useState } from "react";
-import { addToCart } from "../store/cartSlice";
+import {
+  addToCart,
+  increaseQuantity,
+  decreaseQuantity,
+} from "../store/cartSlice";
 import { useDispatch } from "react-redux";
 
 const Product = (prod) => {
@@ -9,11 +13,26 @@ const Product = (prod) => {
   function handleQuantityIncrease() {
     if (quantity < prod.prod.quantity) {
       setQuantity((prev) => prev + 1);
+      dispatch(increaseQuantity({ name: prod.prod.name }));
     }
   }
   function handleQuantityDecrease() {
     if (quantity > -1) {
       setQuantity((prev) => prev - 1);
+      dispatch(decreaseQuantity({ name: prod.prod.name }));
+    }
+  }
+
+  function handleAdd() {
+    if (quantity === 0) {
+      setQuantity(1);
+      dispatch(
+        addToCart({
+          name: prod.prod.name,
+          price: prod.prod.price,
+          quantity: 1,
+        })
+      );
     }
   }
 
@@ -27,7 +46,7 @@ const Product = (prod) => {
       {quantity === 0 ? (
         <button
           className="bg-cyan-300 rounded px-2 py-0 w-full active:scale-95 active:bg-cyan-400"
-          onClick={handleQuantityIncrease}
+          onClick={handleAdd}
         >
           Add
         </button>

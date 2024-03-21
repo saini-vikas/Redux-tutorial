@@ -4,7 +4,6 @@ import { removeFromCart } from "../store/cartSlice";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  console.log(cartItems);
   return (
     <div className="flex flex-col p-4 justify-items-center border-2 rounded-lg w-1/3">
       <div className="flex flex-row mb-3">
@@ -14,7 +13,9 @@ const Cart = () => {
         {cartItems.map((item) => (
           <div className="flex flex-row justify-between py-2" key={item.name}>
             <p>{item.name}</p>
-            <p>${item.price}</p>
+            <p>
+              ${item.price} * {item.quantity} = {item.price * item.quantity}
+            </p>
             <button
               onClick={() => {
                 dispatch(removeFromCart(item.name));
