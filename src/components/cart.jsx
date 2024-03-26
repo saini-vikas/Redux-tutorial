@@ -27,7 +27,7 @@ const Cart = () => {
             </p>
             <button
               onClick={() => {
-                dispatch(handleRemove);
+                dispatch(removeFromCart(item.name));
               }}
               className="px-2 rounded-full bg-red-400 mx-3"
             >

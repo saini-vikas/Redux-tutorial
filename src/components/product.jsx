@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   addToCart,
   increaseQuantity,
@@ -8,11 +8,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Product = (prod) => {
   const cartItems = useSelector((state) => state.cart);
-  const currentProduct = cartItems.filter((item) => item.name === prod.name)[0];
+  console.log(cartItems[0]);
+  const currentProduct = cartItems.filter(
+    (item) => item.name === prod.prod.name
+  )[0];
   const currentProductInCart =
     currentProduct === undefined ? 0 : currentProduct.quantity;
+  console.log(currentProduct);
   const [quantity, setQuantity] = useState(currentProductInCart);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!currentProduct) {
+      setQuantity(0);
+    }
+  }, [currentProduct]);
 
   function handleQuantityIncrease() {
     if (quantity < prod.prod.quantity) {
