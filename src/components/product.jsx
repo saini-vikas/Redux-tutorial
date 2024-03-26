@@ -4,10 +4,14 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "../store/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Product = (prod) => {
-  const [quantity, setQuantity] = useState(0);
+  const cartItems = useSelector((state) => state.cart);
+  const currentProduct = cartItems.filter((item) => item.name === prod.name)[0];
+  const currentProductInCart =
+    currentProduct === undefined ? 0 : currentProduct.quantity;
+  const [quantity, setQuantity] = useState(currentProductInCart);
   const dispatch = useDispatch();
 
   function handleQuantityIncrease() {
