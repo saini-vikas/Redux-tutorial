@@ -37,7 +37,7 @@ const Cart = () => {
         ))}
       </div>
 
-      <div className="flex flex-row h-1/5 w-full mt-3">
+      <div className="flex flex-row h-9 w-full mt-3">
         <button className="px-3 py-1 bg-cyan-600 rounded-md text-white w-full">
           Place Order
         </button>
